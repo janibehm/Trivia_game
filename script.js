@@ -17,10 +17,11 @@ function useApiData(data) {
      let btn_incorrect_answer0 = document.querySelector('#btn_incorrect_answer0')
      let btn_incorrect_answer1 = document.querySelector('#btn_incorrect_answer1')
      let btn_incorrect_answer2 = document.querySelector('#btn_incorrect_answer2')
+
     
     
     //Create "question" text node
-    document.querySelector("#question").innerHTML = ` Question: ${data.results[0].question}` 
+    document.querySelector("#question").innerHTML = ` Question: ${data.results[0].question}` ;
    
     //ANSWERS
     
@@ -30,17 +31,39 @@ function useApiData(data) {
      
     //UNCORRECT ANSWERS create text node
      
-     btn_incorrect_answers0.appendChild(document.createTextNode( `${data.results[0].incorrect_answers[0]}`));  
+     btn_incorrect_answer0.appendChild(document.createTextNode( `${data.results[0].incorrect_answers[0]}`));  
     
-     btn_incorrect_answers1.appendChild(document.createTextNode( `${data.results[0].incorrect_answers[1]}`)); 
+     btn_incorrect_answer1.appendChild(document.createTextNode( `${data.results[0].incorrect_answers[1]}`)); 
 
-     btn_incorrect_answers2.appendChild(document.createTextNode( `${data.results[0].incorrect_answers[2]}`)); 
+     btn_incorrect_answer2.appendChild(document.createTextNode( `${data.results[0].incorrect_answers[2]}`)); 
+
+    //Add click to buttons
+    
+    //function alert "Thats right!"
+    function buttonClickedRight(ev){
+      console.log(ev.type,ev.target,ev.currentTarget);
+      alert("Thats right!")
     }
-    //ANSWERS ends here
-     
-    
-    
+    //function alert "Try again!"
+    function buttonClickedWrong(ev){
+      console.log(ev.type,ev.target,ev.currentTarget);
+      alert("Try again!")
+    }
 
+    //click function expression
+
+    btn_correct_answer.addEventListener('click',buttonClickedRight);
+    
+    btn_incorrect_answer0.addEventListener('click',buttonClickedWrong);
+    
+    btn_incorrect_answer1.addEventListener('click',buttonClickedWrong);
+
+    btn_incorrect_answer2.addEventListener('click',buttonClickedWrong);
+
+
+    }//useApiData ends here!
+    //ANSWERS ends here
+    
     //Select answers html element
       let answers = document.querySelector('.answers');
     //Randomise button order
@@ -48,6 +71,7 @@ function useApiData(data) {
     answers.appendChild(answers.children[Math.random() * i | 0]);
      }
 
+    
     //Add event listener to text nodes when clicked 
     //  function addListAfterClick () {
     //      if (inputLength() > 0) {
