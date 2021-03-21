@@ -12,25 +12,28 @@ window.onload = sendApiRequest()
 function useApiData(data) {
      
     //Select html elements
-     let question = document.querySelector("#question")
+    //  let answers = document.querySelector('.answers')
      let btn_correct_answer = document.querySelector('#btn_correct_answer')
      let btn_incorrect_answer0 = document.querySelector('#btn_incorrect_answer0')
      let btn_incorrect_answer1 = document.querySelector('#btn_incorrect_answer1')
      let btn_incorrect_answer2 = document.querySelector('#btn_incorrect_answer2')
+     let next_question = document.querySelector('#next_question')
+ 
 
     
     
     //Create "question" text node
-    document.querySelector("#question").innerHTML = ` Question: ${data.results[0].question}` ;
+    document.querySelector("#question").innerHTML = ` ${data.results[0].question}` ;
    
     //ANSWERS
-    
+    // answers.appendChild(document.createTextNode( `${data.results[0]}`)); 
     //CORRECT ANSWER create text node
 
      btn_correct_answer.appendChild(document.createTextNode( `${data.results[0].correct_answer}`)); 
      
     //UNCORRECT ANSWERS create text node
-     
+   
+
      btn_incorrect_answer0.appendChild(document.createTextNode( `${data.results[0].incorrect_answers[0]}`));  
     
      btn_incorrect_answer1.appendChild(document.createTextNode( `${data.results[0].incorrect_answers[1]}`)); 
@@ -49,17 +52,33 @@ function useApiData(data) {
       console.log(ev.type,ev.target,ev.currentTarget);
       alert("Try again!")
     }
+    //refresh page function
+    function refreshPage(){
+      location.reload();
+    }
 
-    //click function expression
+    //button refresh page
+    next_question.addEventListener('click',refreshPage)
+   
 
-    btn_correct_answer.addEventListener('click',buttonClickedRight);
+    btn_correct_answer.addEventListener('click',buttonClickedRight,{once:true})
     
     btn_incorrect_answer0.addEventListener('click',buttonClickedWrong);
     
-    btn_incorrect_answer1.addEventListener('click',buttonClickedWrong);
+     btn_incorrect_answer1.addEventListener('click',buttonClickedWrong);
 
-    btn_incorrect_answer2.addEventListener('click',buttonClickedWrong);
+     btn_incorrect_answer2.addEventListener('click',buttonClickedWrong);
+    // if(){
 
+    // }
+
+    // function reloadPage() {
+    //   let executed = true
+    //   location.reload()
+    // }
+       
+
+    //click function execute
 
     }//useApiData ends here!
     //ANSWERS ends here
@@ -72,19 +91,4 @@ function useApiData(data) {
      }
 
     
-    //Add event listener to text nodes when clicked 
-    //  function addListAfterClick () {
-    //      if (inputLength() > 0) {
-    //          createListElement()
-    //      }
-    //  }
 
-   
-
-      // function doSomething(event){
-      //   console.log(event.type)//click
-      //   console.log(event.target)//target
-      // }
-
-      // btn_correct_answer.addEventListner("click", doSomething)      
-   
