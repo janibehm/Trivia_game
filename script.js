@@ -111,9 +111,6 @@ function useApiData(data) {
 
    
       //Add click to buttons
-     next_question.addEventListener('click',refreshPage);
-     
-    //  btn_correct_answer.addEventListener('click',buttonClickedRight,{once:true});
     
      btn_incorrect_answer0.addEventListener('click',buttonClickedWrong),{once:true};
     
@@ -122,7 +119,6 @@ function useApiData(data) {
      btn_incorrect_answer2.addEventListener('click',buttonClickedWrong),{once:true};
     
      //Add point when clicked rigth answer and greeting
-    //  btn_correct_answer.addEventListener('click',addOne);
 
      btn_correct_answer.addEventListener('click',buttonClickedRight);
      btn_correct_answer.addEventListener('click',refreshPage);
