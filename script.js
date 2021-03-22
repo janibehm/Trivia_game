@@ -18,6 +18,7 @@ function useApiData(data) {
      let btn_incorrect_answer1 = document.querySelector('#btn_incorrect_answer1')
      let btn_incorrect_answer2 = document.querySelector('#btn_incorrect_answer2')
      let next_question = document.querySelector('#next_question')
+     let counter = document.querySelector('#counter')
      let audio = document.querySelector('#my_audio')
     //  let counter = document.querySelector('#counter')
 
@@ -47,10 +48,10 @@ function useApiData(data) {
     }
 
     //function alert "Thats right!"
-    function buttonClickedRight(ev){
-      console.log(ev.type,ev.target,ev.currentTarget);
-      alert("Thats right!")
-    }
+    // function buttonClickedRight(ev){
+    //   console.log(ev.type,ev.target,ev.currentTarget);
+    //   alert("Thats right!")
+    // }
     //function alert "Try again!"
     function buttonClickedWrong(ev){
       console.log(ev.type,ev.target,ev.currentTarget);
@@ -61,29 +62,46 @@ function useApiData(data) {
       location.reload();
     }
 
-    function addOne(ev){
-      let foo = document.getElementById('counter').innerHTML;
-      foo++;
-      document.getElementById('counter').innerHTML = foo;
-      console.log(ev.type,ev.target,ev.currentTarget);
-    }
+    //  function addOne(ev){
+    //    let foo = document.getElementById('counter').innerHTML;
+    //    foo++;
+    //    document.getElementById('counter').innerHTML = foo;
+   
+    //    console.log(ev.type,ev.target,ev.currentTarget);
+    //  }
+
+    // function addOne(ev){
+    //   let foo = document.getElementById.('counter').innerHTML;
+    //   foo++;
+    //   document.getElementById('counter').innerHTML = foo;
+    //   console.log(ev.type,ev.target,ev.currentTarget);
+    // }
+
+    // if (typeof(Storage) !== "undefined") {
+    //   localStorage.setItem("points", "1");
+    //   document.getElementById("counter").innerHTML = localStorage.getItem("points");
+    //   console.log("counter")
+    // } else {
+    //   document.getElementById("counter").innerHTML = "Sorry, your browser does not support Web Storage...";
+    // }
     
   //save points when page reload
-   function savePoints(){
-    let mynum = sessionStorage.getItem('counter') | 0 ;
+     function savePoints(ev){
+     let mynum = sessionStorage.getItem('counter');
+    //... then increment
+     mynum ++;
+  //  // And save back to session storage
+      sessionStorage.setItem('counter',mynum);
+      // mynum.appendChild(document.createTextNode()
+      window.alert("Thats right! Your score is" + mynum)
+    
+    } // Get counter from session storage or set it to 0
 
-//... then increment
-mynum ++;
-// And save back to session storage
-sessionStorage.setItem('counter',mynum)
-console.log(mynum)
-   } // Get counter from session storage or set it to 0
-
-
+   
       //Add click to buttons
-     next_question.addEventListener('click',refreshPage)
+     next_question.addEventListener('click',refreshPage);
      
-     btn_correct_answer.addEventListener('click',buttonClickedRight,{once:true});
+    //  btn_correct_answer.addEventListener('click',buttonClickedRight,{once:true});
     
      btn_incorrect_answer0.addEventListener('click',buttonClickedWrong),{once:true};
     
@@ -91,8 +109,8 @@ console.log(mynum)
 
      btn_incorrect_answer2.addEventListener('click',buttonClickedWrong),{once:true};
     
-     //Add point when clicked rigth answer
-     btn_correct_answer.addEventListener('click',addOne);
+     //Add point when clicked rigth answer and greeting
+    //  btn_correct_answer.addEventListener('click',addOne);
 
      btn_correct_answer.addEventListener('click',savePoints);
 
@@ -106,7 +124,4 @@ console.log(mynum)
     //Randomise button order
     for (let i = answers.children.length; i >= 0; i--) {
     answers.appendChild(answers.children[Math.random() * i | 0]);
-     }
-
-    
-
+    }
