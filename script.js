@@ -47,15 +47,27 @@ function useApiData(data) {
       document.getElementById("my_audio").play();
     }
 
-    //function alert "Thats right!"
-    // function buttonClickedRight(ev){
-    //   console.log(ev.type,ev.target,ev.currentTarget);
-    //   alert("Thats right!")
-    // }
-    //function alert "Try again!"
+    //buttonClickedRight
+    function buttonClickedRight(ev){
+      console.log(ev.type,ev.target,ev.currentTarget);
+      let mynum = sessionStorage.getItem('counter');
+      //... then increment
+       mynum ++;
+    //  // And save back to session storage
+        sessionStorage.setItem('counter',mynum);
+        // mynum.appendChild(document.createTextNode()
+        window.alert("Thats right! Your score is " + mynum+" !")
+    }
+    //buttonClickedWrong
     function buttonClickedWrong(ev){
       console.log(ev.type,ev.target,ev.currentTarget);
-      alert("Try again!")
+      let mynum = sessionStorage.getItem('counter');
+    //... then increment
+     mynum --;
+  //  // And save back to session storage
+      sessionStorage.setItem('counter',mynum);
+      // mynum.appendChild(document.createTextNode()
+      window.alert("Try again! Your score is " + mynum+" !")
     }
     //refresh page function
     function refreshPage(){
@@ -86,16 +98,16 @@ function useApiData(data) {
     // }
     
   //save points when page reload
-     function savePoints(ev){
-     let mynum = sessionStorage.getItem('counter');
-    //... then increment
-     mynum ++;
-  //  // And save back to session storage
-      sessionStorage.setItem('counter',mynum);
-      // mynum.appendChild(document.createTextNode()
-      window.alert("Thats right! Your score is" + mynum)
+  //    function savePoints(ev){
+  //    let mynum = sessionStorage.getItem('counter');
+  //   //... then increment
+  //    mynum ++;
+  // //  // And save back to session storage
+  //     sessionStorage.setItem('counter',mynum);
+  //     // mynum.appendChild(document.createTextNode()
+  //     window.alert("Thats right! Your score is " + mynum+" !")
     
-    } // Get counter from session storage or set it to 0
+  //   } // Get counter from session storage or set it to 0
 
    
       //Add click to buttons
@@ -112,7 +124,8 @@ function useApiData(data) {
      //Add point when clicked rigth answer and greeting
     //  btn_correct_answer.addEventListener('click',addOne);
 
-     btn_correct_answer.addEventListener('click',savePoints);
+     btn_correct_answer.addEventListener('click',buttonClickedRight);
+     btn_correct_answer.addEventListener('click',refreshPage);
 
     //click function execute
 
