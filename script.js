@@ -18,10 +18,10 @@ function useApiData(data) {
      let btn_incorrect_answer1 = document.querySelector('#btn_incorrect_answer1')
      let btn_incorrect_answer2 = document.querySelector('#btn_incorrect_answer2')
      let next_question = document.querySelector('#next_question')
- 
+     let audio = document.querySelector('#my_audio')
+    //  let counter = document.querySelector('#counter')
 
-    
-    
+
     //Create "question" text node
     document.querySelector("#question").innerHTML = ` ${data.results[0].question}` ;
    
@@ -39,9 +39,13 @@ function useApiData(data) {
      btn_incorrect_answer1.appendChild(document.createTextNode( `${data.results[0].incorrect_answers[1]}`)); 
 
      btn_incorrect_answer2.appendChild(document.createTextNode( `${data.results[0].incorrect_answers[2]}`)); 
-
-    //Add click to buttons
     
+    //Function declarations
+
+    window.onload=function(){
+      document.getElementById("my_audio").play();
+    }
+
     //function alert "Thats right!"
     function buttonClickedRight(ev){
       console.log(ev.type,ev.target,ev.currentTarget);
@@ -57,26 +61,31 @@ function useApiData(data) {
       location.reload();
     }
 
-    //button refresh page
-    next_question.addEventListener('click',refreshPage)
-   
-
-    btn_correct_answer.addEventListener('click',buttonClickedRight,{once:true})
-    
-    btn_incorrect_answer0.addEventListener('click',buttonClickedWrong);
-    
-     btn_incorrect_answer1.addEventListener('click',buttonClickedWrong);
-
-     btn_incorrect_answer2.addEventListener('click',buttonClickedWrong);
-    // if(){
-
+    // function addOne(){
+    //   let foo = counter.innerHTML = foo++;
+    //   counter.innerHTML = foo
     // }
 
-    // function reloadPage() {
-    //   let executed = true
-    //   location.reload()
-    // }
-       
+    function addOne(ev){
+      var foo = document.getElementById('counter').innerHTML;
+      foo++;
+      document.getElementById('counter').innerHTML = foo;
+      console.log(ev.type,ev.target,ev.currentTarget);
+    }
+
+      //Add click to buttons
+     next_question.addEventListener('click',refreshPage)
+     
+     btn_correct_answer.addEventListener('click',buttonClickedRight,{once:true});
+    
+     btn_incorrect_answer0.addEventListener('click',buttonClickedWrong),{once:true};
+    
+     btn_incorrect_answer1.addEventListener('click',buttonClickedWrong),{once:true};
+
+     btn_incorrect_answer2.addEventListener('click',buttonClickedWrong),{once:true};
+    
+     //Add point when clicked rigth answer
+     btn_correct_answer.addEventListener('click',addOne);
 
     //click function execute
 
