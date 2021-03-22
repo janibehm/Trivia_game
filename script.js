@@ -61,17 +61,24 @@ function useApiData(data) {
       location.reload();
     }
 
-    // function addOne(){
-    //   let foo = counter.innerHTML = foo++;
-    //   counter.innerHTML = foo
-    // }
-
     function addOne(ev){
-      var foo = document.getElementById('counter').innerHTML;
+      let foo = document.getElementById('counter').innerHTML;
       foo++;
       document.getElementById('counter').innerHTML = foo;
       console.log(ev.type,ev.target,ev.currentTarget);
     }
+    
+  //save points when page reload
+   function savePoints(){
+    let mynum = sessionStorage.getItem('counter') | 0 ;
+
+//... then increment
+mynum ++;
+// And save back to session storage
+sessionStorage.setItem('counter',mynum)
+console.log(mynum)
+   } // Get counter from session storage or set it to 0
+
 
       //Add click to buttons
      next_question.addEventListener('click',refreshPage)
@@ -86,6 +93,8 @@ function useApiData(data) {
     
      //Add point when clicked rigth answer
      btn_correct_answer.addEventListener('click',addOne);
+
+     btn_correct_answer.addEventListener('click',savePoints);
 
     //click function execute
 
