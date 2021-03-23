@@ -17,24 +17,21 @@ function useApiData(data) {
      let btn_incorrect_answer0 = document.querySelector('#btn_incorrect_answer0')
      let btn_incorrect_answer1 = document.querySelector('#btn_incorrect_answer1')
      let btn_incorrect_answer2 = document.querySelector('#btn_incorrect_answer2')
-     let next_question = document.querySelector('#next_question')
-     let counter = document.querySelector('#counter')
      let audio = document.querySelector('#my_audio')
-    //  let counter = document.querySelector('#counter')
-
+     let points = document.getElementById("points")
+     //let next_question = document.querySelector('#next_question')
 
     //Create "question" text node
     document.querySelector("#question").innerHTML = ` ${data.results[0].question}` ;
    
     //ANSWERS
-    // answers.appendChild(document.createTextNode( `${data.results[0]}`)); 
+
     //CORRECT ANSWER create text node
 
      btn_correct_answer.appendChild(document.createTextNode( `${data.results[0].correct_answer}`)); 
      
     //UNCORRECT ANSWERS create text node
    
-
      btn_incorrect_answer0.appendChild(document.createTextNode( `${data.results[0].incorrect_answers[0]}`));  
     
      btn_incorrect_answer1.appendChild(document.createTextNode( `${data.results[0].incorrect_answers[1]}`)); 
@@ -56,9 +53,16 @@ function useApiData(data) {
        mynum ++;
     //  // And save back to session storage
         sessionStorage.setItem('counter',mynum);
-        // mynum.appendChild(document.createTextNode()
-        window.alert("Thats right! Your score is " + mynum+" !")
         console.log(mynum)
+        // let result = false
+        if (mynum < 5){
+          return alert("THATS RIGHT YOUR SCORE " + mynum+" !");
+        }
+         else {
+          return alert("CONGRATULATIONS YOU WIN!");
+         }
+
+       
     }
     //buttonClickedWrong function declaration
     function buttonClickedWrong(ev){
@@ -69,9 +73,15 @@ function useApiData(data) {
   //  // And save back to session storage
       sessionStorage.setItem('counter',mynum);
       // mynum.appendChild(document.createTextNode()
-      window.alert("Try again! Your score is " + mynum+" !")
-      console.log(mynum)
+     
+      return alert("TRY AGAIN YOU SCORE IS " + mynum+" !")
     }
+      
+    // function mynumStringWrong(){
+    //   points.appendChild(document.createTextNode("Try again! "));
+        
+    //   }
+    
     //refresh page function
     function refreshPage(){
       location.reload();
