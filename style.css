@@ -1,13 +1,30 @@
 *{
     font-family: 'Courier New', Courier, monospace;
 }
-body{
-    background: linear-gradient(to right, rgb(241, 252, 89), rgb(255, 154, 204));
+@keyframes animation-name{
+    from {     
+        color:rgb(241, 252, 89) 
+      }   
+     
+      to {
+        color: rgb(255, 154, 204)
+       }
+    }
+ 
+
+ body{
+    background: linear-gradient(to right, rgb(241, 252, 89), rgb(255, 154, 204)); 
     margin: auto;
     padding-bottom: 15px;
     
-    
+  
+      
 }
+
+/* @keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+  } */
 .container{
     display: grid;
     display: flex;
@@ -20,17 +37,11 @@ body{
 
 }
 
-#counter{
-    width: 330px;
-    height: 50px;
-    background: linear-gradient(to right, rgb(255, 197, 130), rgb(255, 180, 249));
-    margin: 15px;
-}
-
 h1{
     margin: 15px;
     align-content: center;
     font-size: 60px;
+    
 }
 
 #question{
@@ -41,14 +52,6 @@ h1{
     padding-bottom: 15px;;
 
 }
-
-#next_question{
-    width: 330px;
-    height: 50px;
-    font-size: 20px;
-    background: linear-gradient(to right, rgb(255, 197, 130), rgb(255, 180, 249));
-}
-
 
 .answers{
     display: flex;
@@ -64,11 +67,19 @@ h1{
     #btn_correct_answer{
         width: 200px;
         font-size: large;
-        background: linear-gradient(to right, rgb(255, 197, 130), rgb(255, 180, 249));
+        background: linear-gradient(to right, rgb(255, 197, 130),rgb(255, 180, 249));
         padding:5px;
         margin:10px;
 
     }
+
+     #btn_correct_answer:hover{
+        background:rgb(255, 180, 249);
+        font-size: large;
+        width: 200px;
+        font-size: large;
+        margin:10px;
+    } 
 
    #btn_incorrect_answer0{
        width: 200px;
@@ -79,6 +90,14 @@ h1{
 
    }
 
+   #btn_incorrect_answer0:hover{
+    background:rgb(255, 180, 249);
+    font-size: large;
+    width: 200px;
+    font-size: large;
+    margin:10px;
+} 
+
    #btn_incorrect_answer1{
     width: 200px;
     font-size: large;
@@ -88,6 +107,14 @@ h1{
     
 }
 
+#btn_incorrect_answer1:hover{
+    background:rgb(255, 180, 249);
+    font-size: large;
+    width: 200px;
+    font-size: large;
+    margin:10px;
+} 
+
 #btn_incorrect_answer2{
     width: 200px;
     font-size: large;
@@ -96,6 +123,13 @@ h1{
     margin:10px;
 }
 
+#btn_incorrect_answer2:hover{
+    background:rgb(255, 180, 249);
+    font-size: large;
+    width: 200px;
+    font-size: large;
+    margin:10px;
+} 
 
 
     

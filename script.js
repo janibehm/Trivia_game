@@ -47,9 +47,10 @@ function useApiData(data) {
       document.getElementById("my_audio").play();
     }
 
-    //buttonClickedRight
+    //buttonClickedRight function declaration
     function buttonClickedRight(ev){
       console.log(ev.type,ev.target,ev.currentTarget);
+      //
       let mynum = sessionStorage.getItem('counter');
       //... then increment
        mynum ++;
@@ -57,8 +58,9 @@ function useApiData(data) {
         sessionStorage.setItem('counter',mynum);
         // mynum.appendChild(document.createTextNode()
         window.alert("Thats right! Your score is " + mynum+" !")
+        console.log(mynum)
     }
-    //buttonClickedWrong
+    //buttonClickedWrong function declaration
     function buttonClickedWrong(ev){
       console.log(ev.type,ev.target,ev.currentTarget);
       let mynum = sessionStorage.getItem('counter');
@@ -68,49 +70,14 @@ function useApiData(data) {
       sessionStorage.setItem('counter',mynum);
       // mynum.appendChild(document.createTextNode()
       window.alert("Try again! Your score is " + mynum+" !")
+      console.log(mynum)
     }
     //refresh page function
     function refreshPage(){
       location.reload();
     }
-
-    //  function addOne(ev){
-    //    let foo = document.getElementById('counter').innerHTML;
-    //    foo++;
-    //    document.getElementById('counter').innerHTML = foo;
    
-    //    console.log(ev.type,ev.target,ev.currentTarget);
-    //  }
-
-    // function addOne(ev){
-    //   let foo = document.getElementById.('counter').innerHTML;
-    //   foo++;
-    //   document.getElementById('counter').innerHTML = foo;
-    //   console.log(ev.type,ev.target,ev.currentTarget);
-    // }
-
-    // if (typeof(Storage) !== "undefined") {
-    //   localStorage.setItem("points", "1");
-    //   document.getElementById("counter").innerHTML = localStorage.getItem("points");
-    //   console.log("counter")
-    // } else {
-    //   document.getElementById("counter").innerHTML = "Sorry, your browser does not support Web Storage...";
-    // }
-    
-  //save points when page reload
-  //    function savePoints(ev){
-  //    let mynum = sessionStorage.getItem('counter');
-  //   //... then increment
-  //    mynum ++;
-  // //  // And save back to session storage
-  //     sessionStorage.setItem('counter',mynum);
-  //     // mynum.appendChild(document.createTextNode()
-  //     window.alert("Thats right! Your score is " + mynum+" !")
-    
-  //   } // Get counter from session storage or set it to 0
-
-   
-      //Add click to buttons
+      //When clicked trigger buttonClickedWrong function
     
      btn_incorrect_answer0.addEventListener('click',buttonClickedWrong),{once:true};
     
@@ -118,14 +85,14 @@ function useApiData(data) {
 
      btn_incorrect_answer2.addEventListener('click',buttonClickedWrong),{once:true};
     
-     //Add point when clicked rigth answer and greeting
+     //When clicked trigger buttonClickedRight function
 
      btn_correct_answer.addEventListener('click',buttonClickedRight);
      btn_correct_answer.addEventListener('click',refreshPage);
 
-    //click function execute
-
-    }//useApiData ends here!
+    }
+    
+    //useApiData ends here!
     //ANSWERS ends here
     
     //Select answers html element
