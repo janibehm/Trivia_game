@@ -21,10 +21,6 @@
       
 }
 
-/* @keyframes example {
-    from {background-color: red;}
-    to {background-color: yellow;}
-  } */
 .container{
     display: grid;
     display: flex;
@@ -34,23 +30,26 @@
     align-items: center;
     justify-content: start;
     margin: auto;
-    padding-top: 50px;
+    padding-top: 15px;
 
 }
 
 h1{
-    margin: 15px;
+    margin: 10px;
     align-content: center;
     font-size: 60px;
     
+}
+
+#seconds{
+    font-size: 25px;
 }
 
 #question{
     margin: 25px;
     align-content: center;
     font-size: 20px;
-    font-weight: bold;
-    padding-bottom: 15px;;
+    font-weight: bold;  
 
 }
 
@@ -62,13 +61,25 @@ h1{
     width: 300px;
     min-height: 130px;
     margin-bottom: 15px;
+    margin-top: 15px;
     
     }
+
+    #restart
+    {
+        width: 200px;
+       font-size: large;
+       background: linear-gradient(to right, rgb(255, 197, 130), rgb(255, 180, 249));
+       padding:5px;
+       margin:10px;
+
+        }
+    
 
     #btn_correct_answer{
         width: 200px;
         font-size: large;
-        background: linear-gradient(to right, rgb(255, 197, 130),rgb(255, 180, 249));
+        background: linear-gradient(to right, rgb(255, 197, 130), rgb(255, 180, 249));
         padding:5px;
         margin:10px;
 
@@ -131,6 +142,30 @@ h1{
     font-size: large;
     margin:10px;
 } 
+
+#myBox{
+    font-size: 25px;
+    /* margin:10px;  */
+    color:rgb(148, 0, 141);
+}
+
+#nextQuestion{
+    
+    width: 250px;
+    font-size: large;
+    background: linear-gradient(to right, rgb(255, 197, 130), rgb(255, 180, 249));
+    padding:5px;
+    margin:10px;
+}
+
+#restart{
+     width: 250px;
+        font-size: large;
+        background: linear-gradient(to right, rgb(255, 197, 130), rgb(255, 180, 249));
+        padding:5px;
+        margin:10px;
+}
+
 
 
     
