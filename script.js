@@ -15,14 +15,15 @@ function useApiData(data) {
      let btn_incorrect_answer1 = document.querySelector('#btn_incorrect_answer1')
      let btn_incorrect_answer2 = document.querySelector('#btn_incorrect_answer2')
      let myBox = document.querySelector('#myBox')
-     let myBox2 = document.querySelector('#myBox2')
      let nextQuestion = document.querySelector("#nextQuestion")
      let restart = document.querySelector('#restart')
+
+     let mynum = sessionStorage.getItem('counter');   
  
       //  let audio = document.querySelector('#my_audio')
      
     //Create "question" text node
-    question = document.querySelector("#question").innerHTML = ` ${data.results[0].question}` ;
+    question = document.querySelector("#question").innerHTML = `${data.results[0].question}` ;
    
     //ANSWERS
 
@@ -37,9 +38,9 @@ function useApiData(data) {
      btn_incorrect_answer1.appendChild(document.createTextNode( `${data.results[0].incorrect_answers[1]}`)); 
 
      btn_incorrect_answer2.appendChild(document.createTextNode( `${data.results[0].incorrect_answers[2]}`));
+     
           
           
-          let mynum = sessionStorage.getItem('counter');   
           //ButtonClickedRight function 
           function buttonClickedRight(ev){
          
@@ -86,23 +87,25 @@ function useApiData(data) {
     
     // refresh page function
      function refreshPage(){
-      let refresh = setTimeout(function(ev){
-        // console.log(ev.type,ev.target,ev.currentTarget)
-        location.reload(); 
-      },1000)
-    }
+       if(mynum < 5){
+        let refresh = setTimeout(function(ev){
+          // console.log(ev.type,ev.target,ev.currentTarget)
+          location.reload(); 
+        },1000)
+      }
+   }
+    
 
     function refreshPageInstant(){
         location.reload(); 
     }
  
-  
-  
-
-    function refreshPageEnter(ev){
-    console.log(ev.type,ev.target,ev.currentTarget)
-    location.reload(); 
-}
+//     function refreshPageEnter(ev){
+//     console.log(ev.type,ev.target,ev.currentTarget)
+//    if (KeyboardEvent.key === 13){
+//     location.reload(); 
+//    }  
+// }
    function restartGame(ev){
    console.log(ev.type,ev.target,ev.currentTarget)
    sessionStorage.clear();
@@ -133,7 +136,7 @@ function useApiData(data) {
      
      nextQuestion.addEventListener('click',refreshPageInstant),{once:true};
      
-     document.addEventListener("keydown", refreshPageEnter,{once:true});
+    //  document.addEventListener("keydown", refreshPageEnter,{once:true});
 
      restart.addEventListener('click',restartGame),{once:true};
 
