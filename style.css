@@ -1,27 +1,16 @@
 *{
     font-family: 'Courier New', Courier, monospace;
-}
-/* @keyframes animation-name{
-    from {     
-        color:rgb(241, 252, 89) 
-      }   
-     
-      to {
-        color: rgb(255, 154, 204)
-       }
-    } */
- 
+ }
 
- body{
+ body
+{
     background: linear-gradient(to right, rgb(241, 252, 89), rgb(255, 154, 204)); 
     margin: auto;
-    padding-bottom: 15px;
-    
-  
-      
+    padding-bottom: 15px;  
 }
 
-.container{
+.container
+{
     display: grid;
     display: flex;
     min-width: 1000px;
@@ -31,29 +20,30 @@
     justify-content: start;
     margin: auto;
     padding-top: 15px;
-
 }
 
-h1{
+h1
+{
     margin: 10px;
     align-content: center;
     font-size: 60px;
-    
 }
 
-#seconds{
+#seconds
+{
     font-size: 25px;
 }
 
-#question{
+#question
+{
     margin: 25px;
     align-content: center;
     font-size: 20px;
     font-weight: bold;  
-
 }
 
-.answers{
+.answers
+{
     display: flex;
     flex-direction:column;
     align-items:center; 
@@ -62,7 +52,6 @@ h1{
     min-height: 130px;
     margin-bottom: 15px;
     margin-top: 15px;
-    
     }
 
     #restart
@@ -72,20 +61,20 @@ h1{
        background: linear-gradient(to right, rgb(255, 197, 130), rgb(255, 180, 249));
        padding:5px;
        margin:10px;
-
-        }
+    }
     
 
-    #btn_correct_answer{
+    #btn_correct_answer
+    {
         width: 200px;
         font-size: large;
         background: linear-gradient(to right, rgb(255, 197, 130), rgb(255, 180, 249));
         padding:5px;
         margin:10px;
-
     }
 
-     #btn_correct_answer:hover{
+     #btn_correct_answer:hover
+     {
         background:rgb(255, 180, 249);
         font-size: large;
         width: 200px;
@@ -93,7 +82,8 @@ h1{
         margin:10px;
     } 
 
-   #btn_incorrect_answer0{
+   #btn_incorrect_answer0
+   {
        width: 200px;
        font-size: large;
        background: linear-gradient(to right, rgb(255, 197, 130), rgb(255, 180, 249));
@@ -102,7 +92,8 @@ h1{
 
    }
 
-   #btn_incorrect_answer0:hover{
+   #btn_incorrect_answer0:hover
+   {
     background:rgb(255, 180, 249);
     font-size: large;
     width: 200px;
@@ -110,7 +101,8 @@ h1{
     margin:10px;
 } 
 
-   #btn_incorrect_answer1{
+   #btn_incorrect_answer1
+   {
     width: 200px;
     font-size: large;
     background: linear-gradient(to right, rgb(255, 197, 130), rgb(255, 180, 249));
@@ -119,7 +111,8 @@ h1{
     
 }
 
-#btn_incorrect_answer1:hover{
+#btn_incorrect_answer1:hover
+{
     background:rgb(255, 180, 249);
     font-size: large;
     width: 200px;
@@ -127,7 +120,8 @@ h1{
     margin:10px;
 } 
 
-#btn_incorrect_answer2{
+#btn_incorrect_answer2
+{
     width: 200px;
     font-size: large;
     background: linear-gradient(to right, rgb(255, 197, 130), rgb(255, 180, 249));
@@ -135,7 +129,8 @@ h1{
     margin:10px;
 }
 
-#btn_incorrect_answer2:hover{
+#btn_incorrect_answer2:hover
+{
     background:rgb(255, 180, 249);
     font-size: large;
     width: 200px;
@@ -146,10 +141,11 @@ h1{
 #myBox{
     font-size: 25px;
     /* margin:10px;  */
-    color:rgb(148, 0, 141);
+    color:rgb(128, 0, 179);
 }
 
-#nextQuestion{
+#nextQuestion
+{
     
     width: 250px;
     font-size: large;
@@ -158,7 +154,8 @@ h1{
     margin:10px;
 }
 
-#restart{
+#restart
+{
      width: 250px;
         font-size: large;
         background: linear-gradient(to right, rgb(255, 197, 130), rgb(255, 180, 249));

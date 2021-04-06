@@ -17,10 +17,10 @@ function useApiData(data) {
      let myBox = document.querySelector('#myBox')
      let nextQuestion = document.querySelector("#nextQuestion")
      let restart = document.querySelector('#restart')
-
+     //Select html elements ends
+     
+     //sessionStorage counter
      let mynum = sessionStorage.getItem('counter');   
- 
-      //  let audio = document.querySelector('#my_audio')
      
     //Create "question" text node
     question = document.querySelector("#question").innerHTML = `${data.results[0].question}` ;
@@ -39,79 +39,65 @@ function useApiData(data) {
 
      btn_incorrect_answer2.appendChild(document.createTextNode( `${data.results[0].incorrect_answers[2]}`));
      
-          
-          
           //ButtonClickedRight function 
-          function buttonClickedRight(ev){
-         
-          console.log(ev.type,ev.target,ev.currentTarget);
-           //... then increment
+          const buttonClickedRight = (ev) => {
+           // increment
               mynum ++;
-         // And save back to session storage
-                   sessionStorage.setItem('counter',mynum);
-                   console.log(mynum)
+         // store key/value pair
+            sessionStorage.setItem('counter',mynum);
+            console.log(mynum)
       //  Save count to sessionsStorage
         if (mynum < 5){
-            myBox.appendChild(document.createTextNode("Thats right! Your score is " + mynum + "!"));
+           return myBox.appendChild(document.createTextNode("Thats right! Your score is " + mynum + "!"));
         }
         
-        if (mynum == 5) {
-          myBox.appendChild(document.createTextNode("Congratulations You Win!"));
+        else if (mynum == 5){
+          return myBox.appendChild(document.createTextNode("Congratulations You Win!"));
        }
 
-        if(mynum == 5){
+       else if(mynum == 5){
           return sessionStorage.clear();
         }  
         
     }
-    function buttonClickedWrong(ev){
-      console.log(ev.type,ev.target,ev.currentTarget);
-      let mynum = sessionStorage.getItem('counter');
-    //... then increment
+    const buttonClickedWrong = (ev) => {
+    // increment
      mynum --;
-  // And save back to session storage
+  // store key/value pair
       sessionStorage.setItem('counter',mynum);
       if(mynum >= 0){
-        myBox.appendChild(document.createTextNode("Wrong answer. Your score is " + mynum + "!"));
+       return myBox.appendChild(document.createTextNode("Wrong answer. Your score is " + mynum + "!"));
       } 
       
-      if(mynum < 0){
-        myBox.appendChild(document.createTextNode("Wrong answer. Your score is 0!")) 
+      else if(mynum < 0){
+       return myBox.appendChild(document.createTextNode("Wrong answer. Your score is 0!")) 
       } 
       
-      if(mynum < 0){
-        return sessionStorage.clear()
+      else if(mynum < 0){
+         return sessionStorage.clear()
       } 
-
+      
     }
     
     // refresh page function
-     function refreshPage(){
+     const refreshPage = () =>{
        if(mynum < 5){
-        let refresh = setTimeout(function(ev){
-          // console.log(ev.type,ev.target,ev.currentTarget)
+        let refresh = setTimeout((ev) => {
           location.reload(); 
         },1000)
       }
    }
     
-
-    function refreshPageInstant(){
-        location.reload(); 
+    const refreshPageInstant = () => {
+        return location.reload(); 
     }
  
-//     function refreshPageEnter(ev){
-//     console.log(ev.type,ev.target,ev.currentTarget)
-//    if (KeyboardEvent.key === 13){
-//     location.reload(); 
-//    }  
-// }
-   function restartGame(ev){
-   console.log(ev.type,ev.target,ev.currentTarget)
-   sessionStorage.clear();
+
+   const restartGame = (ev) =>{
+    return sessionStorage.clear();
    }
   
-   let stopTime = function myStopFunction() {
+   let stopTime = () => {
     clearInterval(setCount);
 }
 
@@ -135,15 +121,13 @@ function useApiData(data) {
      btn_correct_answer.addEventListener('click',refreshPage,{once:true});
      
      nextQuestion.addEventListener('click',refreshPageInstant),{once:true};
-     
-    //  document.addEventListener("keydown", refreshPageEnter,{once:true});
 
      restart.addEventListener('click',restartGame),{once:true};
 
      restart.addEventListener('click',refreshPageInstant),{once:true};
     }
      
- //time counter function 
+ //time counter 
  let label = document.getElementById("seconds");
  let totalSeconds = 11;
  let setCount = setInterval (setTime, 1001);
@@ -153,13 +137,14 @@ function useApiData(data) {
       --totalSeconds;
       label.innerHTML = pad(totalSeconds % 12); 
     }
-    function pad(val) {
-      // console.log(val)
+     const pad = (val) => {
       let valString = val + "";
       if (val > 0) {
         return valString;        
     }
-       else if (val == 0){return location.reload() + valString;}     
+       else if (val == 0){
+         return location.reload() + valString;
+        }     
       
    }
      
